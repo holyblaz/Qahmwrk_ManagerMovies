@@ -28,11 +28,10 @@ public class CartManager {
     }
 
     public PurchaseItem[] findLast() {
-        PurchaseItem[] items = findAll();
         int resultLength;
-        boolean isLimited = this.limit < 10;
+        boolean isLimited = this.limit < findAll().length;
 
-        resultLength = isLimited ? this.limit : 10;
+        resultLength = isLimited ? this.limit : findAll().length;
         PurchaseItem[] result = new PurchaseItem[resultLength];
         for (int i = 0; i < result.length; i++) {
             int index = items.length - i - 1;
